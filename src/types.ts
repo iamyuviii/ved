@@ -1,4 +1,6 @@
-import type { LucideIcon } from 'lucide-react';
+import type { ComponentType } from 'react';
+
+export type IconComponent = ComponentType<{ size?: number | string; className?: string }>;
 
 export type FlowType = 'mantra' | 'meditation' | 'samadhan';
 export type Screen = 'home' | 'preferences' | 'choices' | 'room';
@@ -12,7 +14,7 @@ export interface PracticeCard {
   id: string;
   label: string;
   description: string;
-  icon: LucideIcon;
+  icon: IconComponent;
   theme: Theme;
   mantra?: string;
 }

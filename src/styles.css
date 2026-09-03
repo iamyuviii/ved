@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Tiro+Devanagari+Hindi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Tiro+Devanagari+Hindi&display=swap');
 
 /* ── Design Tokens ─────────────────────────────────────────────── */
 :root {
-  font-family: 'DM Sans', system-ui, sans-serif;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
   color: #32170e;
   background: #fffaf3;
   font-synthesis: none;
@@ -16,7 +16,9 @@
   --paper: rgba(255, 255, 255, .86);
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -29,8 +31,14 @@ body {
     #fffaf3;
 }
 
-button { font: inherit; }
-button:focus-visible { outline: 3px solid rgba(244, 84, 26, .32); outline-offset: 4px; }
+button {
+  font: inherit;
+}
+
+button:focus-visible {
+  outline: 3px solid rgba(244, 84, 26, .32);
+  outline-offset: 4px;
+}
 
 /* ── App Shell ─────────────────────────────────────────────────── */
 .app-shell {
@@ -45,8 +53,15 @@ button:focus-visible { outline: 3px solid rgba(244, 84, 26, .32); outline-offset
 }
 
 @keyframes fadeSlideUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ── Topbar ────────────────────────────────────────────────────── */
@@ -106,6 +121,7 @@ button:focus-visible { outline: 3px solid rgba(244, 84, 26, .32); outline-offset
 
 /* ── Eyebrow ───────────────────────────────────────────────────── */
 .eyebrow {
+  display: none;
   color: #d83f09;
   font-size: .72rem;
   font-weight: 700;
@@ -113,17 +129,20 @@ button:focus-visible { outline: 3px solid rgba(244, 84, 26, .32); outline-offset
   text-transform: uppercase;
 }
 
-.eyebrow.light { color: #ffd8c8; }
+.eyebrow.light {
+  color: #ffd8c8;
+}
 
 /* ── Hero Banner (Home) ────────────────────────────────────────── */
 .hero-banner {
   position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
-  min-height: 340px;
-  padding: 28px 22px 26px;
+  min-height: 150px;
+  padding: 22px 20px;
   overflow: hidden;
   border: 0;
   border-radius: 22px;
@@ -152,12 +171,14 @@ button:focus-visible { outline: 3px solid rgba(244, 84, 26, .32); outline-offset
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  flex: 1;
+  min-width: 0;
 }
 
 .hero-copy strong {
   margin: 12px 0 14px;
   font-family: 'Tiro Devanagari Hindi', serif;
-  font-size: 2.5rem;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1;
   letter-spacing: -.04em;
@@ -172,8 +193,8 @@ button:focus-visible { outline: 3px solid rgba(244, 84, 26, .32); outline-offset
 .hero-action {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-top: 20px;
+  gap: 3px;
+  margin-top: 5px;
   font-size: .9rem;
   font-weight: 700;
 }
@@ -181,8 +202,8 @@ button:focus-visible { outline: 3px solid rgba(244, 84, 26, .32); outline-offset
 .hero-action i {
   display: grid;
   place-items: center;
-  width: 30px;
-  height: 30px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   background: #fff;
   color: var(--orange);
@@ -192,17 +213,18 @@ button:focus-visible { outline: 3px solid rgba(244, 84, 26, .32); outline-offset
 .hero-symbol {
   position: relative;
   z-index: 1;
-  align-self: flex-end;
+  align-self: center;
+  flex-shrink: 0;
   display: grid;
   place-items: center;
-  width: 90px;
+  width: 70px;
   aspect-ratio: 1;
-  margin-top: 12px;
+  margin-left: 14px;
   border: 1px solid rgba(255, 255, 255, .28);
   border-radius: 50%;
   background: rgba(255, 255, 255, .1);
   font-family: 'Tiro Devanagari Hindi', serif;
-  font-size: 3.2rem;
+  font-size: 2.8rem;
 }
 
 .home-note {
@@ -266,10 +288,12 @@ button:focus-visible { outline: 3px solid rgba(244, 84, 26, .32); outline-offset
 /* Preference card */
 .pref-card {
   display: flex;
-  flex-direction: column;
-  min-height: 148px;
-  padding: 20px;
-  border-radius: 20px;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  min-height: auto;
+  padding: 14px 16px;
+  border-radius: 18px;
 }
 
 .number {
@@ -281,19 +305,31 @@ button:focus-visible { outline: 3px solid rgba(244, 84, 26, .32); outline-offset
 .pref-icon {
   display: grid;
   place-items: center;
-  width: 52px;
-  height: 52px;
-  margin: 14px 0 14px;
-  border-radius: 16px;
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  margin: 0;
+  border-radius: 14px;
   color: var(--orange);
   background: #fff0e8;
+}
+
+.pref-copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.pref-card .card-arrow {
+  position: static;
+  flex-shrink: 0;
+  color: var(--orange);
 }
 
 .pref-card h2,
 .choice-card h2 {
   margin: 0 0 6px;
   font-family: 'Tiro Devanagari Hindi', serif;
-  font-size: 1.35rem;
+  font-size: 1.1rem;
   font-weight: 400;
 }
 
@@ -314,43 +350,40 @@ button:focus-visible { outline: 3px solid rgba(244, 84, 26, .32); outline-offset
 
 /* ── Choice Grid ───────────────────────────────────────────────── */
 .choice-grid {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 12px;
 }
 
 .choice-card {
   display: flex;
-  align-items: stretch;
-  justify-content: space-between;
-  gap: 14px;
-  min-height: 130px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  min-height: auto;
   padding: 16px;
-  border-radius: 20px;
+  border-radius: 18px;
+}
+
+.choice-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .15);
 }
 
 .choice-copy {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 4px 0 4px 4px;
   flex: 1;
   min-width: 0;
 }
 
 .choice-copy small {
-  display: block;
-  margin-bottom: 8px;
-  color: #d83f09;
-  font-size: .72rem;
-  font-weight: 700;
-}
-
-.card-art {
-  flex: 0 0 80px;
-  display: grid;
-  place-items: center;
-  border-radius: 18px;
+  display: none;
 }
 
 /* ── Room ───────────────────────────────────────────────────────── */
@@ -532,10 +565,18 @@ button:focus-visible { outline: 3px solid rgba(244, 84, 26, .32); outline-offset
 }
 
 .wave i:nth-child(2),
-.wave i:nth-child(6) { animation-delay: -.25s; }
+.wave i:nth-child(6) {
+  animation-delay: -.25s;
+}
+
 .wave i:nth-child(3),
-.wave i:nth-child(5) { animation-delay: -.5s; }
-.wave i:nth-child(4) { animation-delay: -.75s; }
+.wave i:nth-child(5) {
+  animation-delay: -.5s;
+}
+
+.wave i:nth-child(4) {
+  animation-delay: -.75s;
+}
 
 /* Prompts */
 .prompt {
@@ -591,22 +632,48 @@ button:focus-visible { outline: 3px solid rgba(244, 84, 26, .32); outline-offset
 
 /* ── Keyframes ─────────────────────────────────────────────────── */
 @keyframes breathe {
-  0%, 100% { transform: scale(.75); }
-  50%      { transform: scale(1.15); }
+
+  0%,
+  100% {
+    transform: scale(.75);
+  }
+
+  50% {
+    transform: scale(1.15);
+  }
 }
 
 @keyframes boxBreathe {
-  0%, 100% { transform: scale(.76); border-radius: 16px; }
-  50%      { transform: scale(1.12); border-radius: 38px; }
+
+  0%,
+  100% {
+    transform: scale(.76);
+    border-radius: 16px;
+  }
+
+  50% {
+    transform: scale(1.12);
+    border-radius: 38px;
+  }
 }
 
 @keyframes wave {
-  0%, 100% { height: 20px; opacity: .45; }
-  50%      { height: 90px; opacity: 1; }
+
+  0%,
+  100% {
+    height: 20px;
+    opacity: .45;
+  }
+
+  50% {
+    height: 90px;
+    opacity: 1;
+  }
 }
 
 /* ── Reduced Motion ────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {

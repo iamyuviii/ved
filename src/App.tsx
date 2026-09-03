@@ -65,7 +65,7 @@ function App() {
 
   return (
     <main className="app-shell">
-      <Topbar showBack={screen !== 'home'} onBack={goBack} />
+      {/* <Topbar showBack={screen !== 'home'} onBack={goBack} /> */}
       <div className="page-transition" key={screen + (selectedId ?? '')}>
         {screen === 'home' && <Home onOpen={() => setScreen('preferences')} />}
         {screen === 'preferences' && <Preferences onChoose={chooseFlow} />}
@@ -84,7 +84,7 @@ function App() {
 function Topbar({ showBack, onBack }: { showBack: boolean; onBack: () => void }) {
   return <header className="topbar">
     <button className="brand" type="button" aria-label="Ved home" onClick={onBack}>
-      <span className="brand-mark">व</span><span>Ved</span>
+      {/* <span className="brand-mark">व</span><span>Ved</span> */}
     </button>
     {showBack && <button className="ghost-button" type="button" onClick={onBack}><ArrowLeft size={17} /> Back</button>}
   </header>;
@@ -94,9 +94,9 @@ function Home({ onOpen }: { onOpen: () => void }) {
   return <>
     <button className="hero-banner" type="button" onClick={onOpen}>
       <span className="hero-copy">
-        <span className="eyebrow light">A moment for yourself</span>
+        
         <strong>Roz thoda sa sukoon.</strong>
-        <span className="hero-sub">Mantra, meditation aur samadhan — jo aaj dil ko chahiye, wahi se shuru karein.</span>
+        <span className="hero-sub">Mantra, meditation aur samadhan </span>
         <span className="hero-action">Apni practice chunein <i><ChevronRight size={18} /></i></span>
       </span>
       <span className="hero-symbol" aria-hidden="true">ॐ</span>
@@ -112,8 +112,9 @@ function Preferences({ onChoose }: { onChoose: (type: FlowType) => void }) {
       {preferences.map((item, index) => {
         const Icon = item.icon;
         return <button className="pref-card" type="button" key={item.id} onClick={() => onChoose(item.id)}>
-          <span className="number">0{index + 1}</span><span className="pref-icon"><Icon size={31} /></span>
-          <h2>{item.label}</h2><p>{item.description}</p><ChevronRight className="card-arrow" size={22} />
+          <span className="pref-icon"><Icon size={24} /></span>
+          <span className="pref-copy"><h2>{item.label}</h2><p>{item.description}</p></span>
+          <ChevronRight className="card-arrow" size={20} />
         </button>;
       })}
     </section>
@@ -132,9 +133,9 @@ function Choices({ flow, onChoose }: { flow: FlowType; onChoose: (item: Practice
     <section className="choice-grid">
       {practices[flow].map((item) => {
         const Icon = item.icon;
-        return <button className="choice-card" type="button" key={item.id} onClick={() => onChoose(item)}>
-          <span className="choice-copy"><small>{flow === 'samadhan' ? 'Samadhan for' : flow === 'mantra' ? 'Mantra' : 'Practice'}</small><h2>{item.label}</h2><p>{item.description}</p></span>
-          <span className="card-art" style={{ color: item.theme.accent, background: `linear-gradient(145deg, ${item.theme.accent}18, #fff)` }}><Icon size={44} strokeWidth={1.55} /></span>
+        return <button className="choice-card" type="button" key={item.id} onClick={() => onChoose(item)} style={{ borderColor: `${item.theme.accent}22` }}>
+          <span className="choice-icon" style={{ background: `linear-gradient(135deg, ${item.theme.dark}, ${item.theme.accent})` }}><Icon size={22} /></span>
+          <span className="choice-copy"><h2>{item.label}</h2><p>{item.description}</p></span>
         </button>;
       })}
     </section>
