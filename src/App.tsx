@@ -65,7 +65,7 @@ function App() {
 
   return (
     <main className="app-shell">
-      {/* <Topbar showBack={screen !== 'home'} onBack={goBack} /> */}
+      <Topbar showBack={screen !== 'home'} onBack={goBack} />
       <div className="page-transition" key={screen + (selectedId ?? '')}>
         {screen === 'home' && <Home onOpen={() => setScreen('preferences')} />}
         {screen === 'preferences' && <Preferences onChoose={chooseFlow} />}
