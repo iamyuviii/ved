@@ -3,7 +3,7 @@ import {
   GiPrayerBeads,
   GiHealing,
   GiTrident,
-  GiMountainRoad,
+  GiFlangedMace,
   GiBowArrow,
   GiLion,
   GiMeditation,
@@ -28,7 +28,7 @@ export const preferences = [
 export const practices: Record<FlowType, PracticeCard[]> = {
   mantra: [
     { id: 'shivaya', label: 'Om Namah Shivaya', description: 'Mann ko shaant aur andar se sthir banaye.', icon: GiTrident, theme: { dark: '#561712', accent: '#F4541A' } },
-    { id: 'hanumate', label: 'Om Shri Hanumate Namah', description: 'Himmat, focus aur confidence badhaye.', icon: GiMountainRoad, theme: { dark: '#6C210D', accent: '#E76C16' } },
+    { id: 'hanumate', label: 'Om Shri Hanumate Namah', description: 'Himmat, focus aur confidence badhaye.', icon: GiFlangedMace, theme: { dark: '#6C210D', accent: '#E76C16' } },
     { id: 'ram', label: 'Jai Shri Ram', description: 'Dharma, discipline aur positive energy jagaye.', icon: GiBowArrow, theme: { dark: '#71340C', accent: '#F39418' } },
     { id: 'durga', label: 'Jai Maa Durga', description: 'Shakti de aur negativity se raksha kare.', icon: GiLion, theme: { dark: '#64112A', accent: '#D63B37' } }
   ],
